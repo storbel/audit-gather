@@ -7,7 +7,9 @@ mkdir -p "${BASE_COLLECTION_PATH}"
 # Example command
 oc whoami
 oc describe nodes > ${BASE_COLLECTION_PATH}/nodes.txt
+echo "Getting Python version"
 python3 -V > ${BASE_COLLECTION_PATH}/pythonVersion.txt
+exit 0
 oc get clusterversion                   -o json     > ${BASE_COLLECTION_PATH}/clusterversion.json
 oc get nodes                            -o json   > ${BASE_COLLECTION_PATH}/nodes.json
 oc get network.operator cluster         -o json   > ${BASE_COLLECTION_PATH}/network.json
@@ -29,12 +31,10 @@ oc get clusterlogging instance -n openshift-logging -o yaml   > ${BASE_COLLECTIO
 oc get route -A                                     -o json   > ${BASE_COLLECTION_PATH}/route.json
 oc get deployments --all-namespaces                 -o json   > ${BASE_COLLECTION_PATH}/deployments.json
 oc get hpa --all-namespaces                         -o json   > ${BASE_COLLECTION_PATH}/hpa.json
-oc get namespaces                                   -o name   > ${BASE_COLLECTION_PATH}/namespaces.json
 oc get networkpolicies -A                           -o json  > ${BASE_COLLECTION_PATH}/networkpolicies.json
 oc get imagestreams --all-namespaces                -o json   > ${BASE_COLLECTION_PATH}/imagestreams.json
 oc get pv                                           -o json   > ${BASE_COLLECTION_PATH}/pv.json
 oc get pvc      -A                                  -o json   > ${BASE_COLLECTION_PATH}/pvc.json
-
 oc get cronjob -A                                   -o json   > ${BASE_COLLECTION_PATH}/cronjob.json
 oc get csr                                          -o json   > ${BASE_COLLECTION_PATH}/csr.json
 oc -n openshift-monitoring get secret alertmanager-main -o json  > ${BASE_COLLECTION_PATH}/alertmanager.json
