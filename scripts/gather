@@ -8,4 +8,66 @@ mkdir -p "${BASE_COLLECTION_PATH}"
 oc whoami
 oc describe nodes > ${BASE_COLLECTION_PATH}/nodes.txt
 
+oc get clusterversion                   -o json     > ${BASE_COLLECTION_PATH}/clusterversion.json
+oc get nodes                            -o json   > ${BASE_COLLECTION_PATH}/nodes.json
+oc get network.operator cluster         -o json   > ${BASE_COLLECTION_PATH}/network.json
+oc get storageclass                     -o json   > ${BASE_COLLECTION_PATH}/storageclass.json
+oc get users                            -o json   > ${BASE_COLLECTION_PATH}/users.json
+oc get clusterrolebinding               -o json   > ${BASE_COLLECTION_PATH}/clusterrolebinding.json
+oc get namespaces                       -o json   > ${BASE_COLLECTION_PATH}/namespaces.json
+oc get resourcequota -A                 -o json   > ${BASE_COLLECTION_PATH}/resourcequota.json
+oc get limitrange -A                    -o json   > ${BASE_COLLECTION_PATH}/limitrange.json
+oc get scc  -A                          -o json   > ${BASE_COLLECTION_PATH}/scc.json
+oc get psp      -A                      -o json   > ${BASE_COLLECTION_PATH}/psp.json
+oc get psa -A                           -o json   > ${BASE_COLLECTION_PATH}/psa.json
+oc get ns                               -o json   > ${BASE_COLLECTION_PATH}/ns.json
+oc get kubeapiservers.operator.openshift.io cluster -o json   > ${BASE_COLLECTION_PATH}/kubeapiservers.json
+oc get clusteroperators                             -o json   > ${BASE_COLLECTION_PATH}/clusteroperators.json
+oc get image.config.openshift.io/cluster            -o json   > ${BASE_COLLECTION_PATH}/image.json
+oc get clusterlogging instance -n openshift-logging -o json > ${BASE_COLLECTION_PATH}/clusterlogging.json
+oc get clusterlogging instance -n openshift-logging -o yaml   > ${BASE_COLLECTION_PATH}/clusterlogging.yaml
+oc get route -A                                     -o json   > ${BASE_COLLECTION_PATH}/route.json
+oc get deployments --all-namespaces                 -o json   > ${BASE_COLLECTION_PATH}/deployments.json
+oc get hpa --all-namespaces                         -o json   > ${BASE_COLLECTION_PATH}/hpa.json
+oc get namespaces                                   -o name   > ${BASE_COLLECTION_PATH}/namespaces.json
+oc get networkpolicies -A                           -o json  > ${BASE_COLLECTION_PATH}/networkpolicies.json
+oc get imagestreams --all-namespaces                -o json   > ${BASE_COLLECTION_PATH}/imagestreams.json
+oc get pv                                           -o json   > ${BASE_COLLECTION_PATH}/pv.json
+oc get pvc      -A                                  -o json   > ${BASE_COLLECTION_PATH}/pvc.json
+
+oc get cronjob -A                                   -o json   > ${BASE_COLLECTION_PATH}/cronjob.json
+oc get csr                                          -o json   > ${BASE_COLLECTION_PATH}/csr.json
+oc -n openshift-monitoring get secret alertmanager-main -o json  > ${BASE_COLLECTION_PATH}/alertmanager.json
+oc get configmap cluster-monitoring-config -n openshift-monitoring -o json   > ${BASE_COLLECTION_PATH}/configmap-monitoring.json
+oc get csv --all-namespaces                         -o json    > ${BASE_COLLECTION_PATH}/csv.json
+oc get clusterlogging instance -n openshift-logging -o json   > ${BASE_COLLECTION_PATH}/clusterlogging.json
+oc get clusterlogforwarder instance -n openshift-logging -o json   > ${BASE_COLLECTION_PATH}/clusterlogforwarder.json
+oc get metallb -n openshift-metallb -o json   > ${BASE_COLLECTION_PATH}/metallb.json
+oc get addresspool -n openshift-metallb -o json   > ${BASE_COLLECTION_PATH}/addresspool.json
+oc get mutatingwebhookconfigurations -o json   > ${BASE_COLLECTION_PATH}/mutatingwebhookconfigurations.json
+oc get validatingwebhookconfigurations -o json   > ${BASE_COLLECTION_PATH}/validatingwebhookconfigurations.json
+oc get poddisruptionbudgets --all-namespaces -o json   > ${BASE_COLLECTION_PATH}/poddisruptionbudgets.json
+oc get crd policies.kyverno.io --all-namespaces -o json  > ${BASE_COLLECTION_PATH}/policies-kyverno.json
+oc get clusterpolicies --all-namespaces -o json   > ${BASE_COLLECTION_PATH}/clusterpolicies.json
+oc get egressip -A -o json   > ${BASE_COLLECTION_PATH}/egressip.json
+oc get policyexceptions --all-namespaces -o json   > ${BASE_COLLECTION_PATH}/policyexceptions.json
+oc get deployment k10-deployment -n kasten-io -o json   > ${BASE_COLLECTION_PATH}/kasten-deployment.json
+oc get profiles.config.kio.kasten.io -n kasten-io -o json   > ${BASE_COLLECTION_PATH}/kasten-profiles.json
+oc get snapshots.k10.kasten.io --all-namespaces -o json   > ${BASE_COLLECTION_PATH}/kasten-snapshots.json
+oc get volumesnapshots --all-namespaces -o json   > ${BASE_COLLECTION_PATH}/kasten-volumesnapshots.json
+oc get policies.config.kio.kasten.io --all-namespaces -o json   > ${BASE_COLLECTION_PATH}/kasten-policies.json
+oc get infrastructure cluster -o json   > ${BASE_COLLECTION_PATH}/infrastructure.json
+oc get images -o json   > ${BASE_COLLECTION_PATH}/images.json
+oc get imagecontentsourcepolicy -o json   > ${BASE_COLLECTION_PATH}/imagecontentsourcepolicy.json
+oc get proxy cluster -o json   > ${BASE_COLLECTION_PATH}/proxy.json
+oc get configs.imageregistry.operator.openshift.io/cluster -o json   > ${BASE_COLLECTION_PATH}/configs.json
+oc get certificatesigningrequests -o json   > ${BASE_COLLECTION_PATH}/certificatesigningrequests.json
+oc get oauth cluster -o json   > ${BASE_COLLECTION_PATH}/oauth.json
+oc adm top nodes   > ${BASE_COLLECTION_PATH}/top-nodes.json
+oc get subscriptions --all-namespaces -o json   > ${BASE_COLLECTION_PATH}/subscriptions.json
+oc get ingress --all-namespaces -o json   > ${BASE_COLLECTION_PATH}/ingress.json
+oc get deployments --all-namespaces -o json   > ${BASE_COLLECTION_PATH}/deployments.json
+oc get servicemonitor --all-namespaces -o json   > ${BASE_COLLECTION_PATH}/servicemonitor.json
+
+
 exit 0
