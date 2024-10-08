@@ -10,8 +10,8 @@ oc describe nodes > ${BASE_COLLECTION_PATH}/nodes.txt
 echo "Run python scripts"
 cd /usr/tmp/
 source venv/bin/activate
-python3 ./hyperscaleauditocp.py > hyperscaleauditocp.log
-python3 ./advChecksOCP.py > advChecksOCP.log
+python3 ./hyperscaleauditocp.py > ${BASE_COLLECTION_PATH}/hyperscaleauditocp.log
+python3 ./advChecksOCP.py > ${BASE_COLLECTION_PATH}/advChecksOCP.log
 exit 0
 echo "Run bash commands"
 
