@@ -7,9 +7,13 @@ mkdir -p "${BASE_COLLECTION_PATH}"
 # Example command
 oc whoami
 oc describe nodes > ${BASE_COLLECTION_PATH}/nodes.txt
-echo "Getting Python version"
-python3 -V > ${BASE_COLLECTION_PATH}/pythonVersion.txt
+echo "Run python scripts"
+
+python3 ./hyperscaleauditocp.py > hyperscaleauditocp.log
+python3 ./advChecksOCP.py > advChecksOCP.log
 exit 0
+echo "Run bash commands"
+
 oc get clusterversion                   -o json     > ${BASE_COLLECTION_PATH}/clusterversion.json
 oc get nodes                            -o json   > ${BASE_COLLECTION_PATH}/nodes.json
 oc get network.operator cluster         -o json   > ${BASE_COLLECTION_PATH}/network.json
