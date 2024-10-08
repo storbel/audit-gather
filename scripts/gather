@@ -8,7 +8,8 @@ mkdir -p "${BASE_COLLECTION_PATH}"
 oc whoami
 oc describe nodes > ${BASE_COLLECTION_PATH}/nodes.txt
 echo "Run python scripts"
-
+cd /usr/tmp/
+source venv/bin/activate
 python3 ./hyperscaleauditocp.py > hyperscaleauditocp.log
 python3 ./advChecksOCP.py > advChecksOCP.log
 exit 0
