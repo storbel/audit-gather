@@ -1,5 +1,5 @@
 FROM quay.io/openshift/origin-cli
-RUN python3 -m pip install -r ./scripts/requirements.txt 
+RUN python -m pip install -r ./scripts/requirements.txt 
 
 COPY ./scripts/* /usr/bin/
 
