@@ -41,10 +41,10 @@ $ podman build -t my-must-gather .
 Once you have built the image, you can tag and push it somewhere so others can access it. For example:
 
 ```
-$ podman tag my-must-gather quay.io/bostrt/my-must-gather:latest
+$ podman tag my-must-gather quay.io/scc_hyperscale/audit-gather:latest
 
 $ podman login quay.io
-$ podman push quay.io/bostrt/my-must-gather:latest
+$ podman push quay.io/scc_hyperscale/audit-gather:latest
 ```
 
 *Reminder: Do you want your image public? Check registry repo settings on https://quay.io!*
@@ -54,7 +54,7 @@ $ podman push quay.io/bostrt/my-must-gather:latest
 At this point, you can use your new Must Gather image. 
 
 ```
-$ oc adm must-gather --image=quay.io/bostrt/my-must-gather
+$ oc adm must-gather --image=quay.io/scc_hyperscale/audit-gather
 ```
 
 ### Image vs ImageStream
@@ -62,7 +62,7 @@ $ oc adm must-gather --image=quay.io/bostrt/my-must-gather
 If you are doing rapid development and frequently pushing an updated images to your container registry repo, you may need to use an ImageStream like so:
 
 ```
-$ oc import-image my-must-gather --from=quay.io/bostrt/my-must-gather:latest --confirm
+$ oc import-image my-must-gather --from=quay.io/scc_hyperscale/audit-gather:latest --confirm
 $ oc adm must-gather --image-stream=default/my-must-gather
 ```
 
