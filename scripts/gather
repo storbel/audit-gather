@@ -71,8 +71,8 @@ run_oc_command "get pods -A -o wide" "${BASE_COLLECTION_PATH}/pods.txt"
 run_oc_command "get deployments -A -o json" "${BASE_COLLECTION_PATH}/deployments.json"
 run_oc_command "get statefulsets -A -o json" "${BASE_COLLECTION_PATH}/statefulsets.json"
 run_oc_command "get daemonsets -A -o json" "${BASE_COLLECTION_PATH}/daemonsets.json"
-run_oc_command "get hpa --all-namespaces -o json"   > "${BASE_COLLECTION_PATH}/hpa.json"
-run_oc_command "get vpa --all-namespaces -o json"   > "${BASE_COLLECTION_PATH}/vpa.json"
+run_oc_command "get hpa --all-namespaces -o json"   "${BASE_COLLECTION_PATH}/hpa.json"
+run_oc_command "get vpa --all-namespaces -o json"   "${BASE_COLLECTION_PATH}/vpa.json"
 
 # Operators and OLM
 run_oc_command "get clusterserviceversions -A -o json" "${BASE_COLLECTION_PATH}/clusterserviceversions.json"
@@ -93,7 +93,7 @@ run_oc_command "get dnses.operator.openshift.io/default -o json" "${BASE_COLLECT
 run_oc_command "get proxy cluster  -o json" "${BASE_COLLECTION_PATH}/proxy.json"
 run_oc_command "get route -A -o json" "${BASE_COLLECTION_PATH}/routes.json"
 
-run_oc_command "get egressip -A -o json"   > "${BASE_COLLECTION_PATH}/egressip.json"
+run_oc_command "get egressip -A -o json"   "${BASE_COLLECTION_PATH}/egressip.json"
 
 
 # Security
@@ -105,21 +105,21 @@ run_oc_command "get authentications.operator.openshift.io -o json" "${BASE_COLLE
 run_oc_command "get users -o json" "${BASE_COLLECTION_PATH}/users.json"
 run_oc_command "get psa -A -o json" "${BASE_COLLECTION_PATH}/psa.json"
 run_oc_command "get psp -A -o json" "${BASE_COLLECTION_PATH}/psp.json"
-run_oc_command "get mutatingwebhookconfigurations -o json"          > "${BASE_COLLECTION_PATH}/mutatingwebhookconfigurations.json"
-run_oc_command "get validatingwebhookconfigurations -o json"        > "${BASE_COLLECTION_PATH}/validatingwebhookconfigurations.json"
-run_oc_command "get poddisruptionbudgets --all-namespaces -o json"  > "${BASE_COLLECTION_PATH}/poddisruptionbudgets.json"
-run_oc_command "get policyexceptions --all-namespaces -o json"      > "${BASE_COLLECTION_PATH}/policyexceptions.json"
+run_oc_command "get mutatingwebhookconfigurations -o json"          "${BASE_COLLECTION_PATH}/mutatingwebhookconfigurations.json"
+run_oc_command "get validatingwebhookconfigurations -o json"        "${BASE_COLLECTION_PATH}/validatingwebhookconfigurations.json"
+run_oc_command "get poddisruptionbudgets --all-namespaces -o json"  "${BASE_COLLECTION_PATH}/poddisruptionbudgets.json"
+run_oc_command "get policyexceptions --all-namespaces -o json"      "${BASE_COLLECTION_PATH}/policyexceptions.json"
 
 
 # Monitoring and Logging
 run_oc_command "get prometheusrules -A -o json" "${BASE_COLLECTION_PATH}/prometheusrules.json"
 run_oc_command "get servicemonitors -A -o json" "${BASE_COLLECTION_PATH}/servicemonitors.json"
 run_oc_command "get alertmanagers -A -o json" "${BASE_COLLECTION_PATH}/alertmanagers.json"
-run_oc_command "get secret alertmanager-main -n openshift-monitoring -o json"  > "${BASE_COLLECTION_PATH}/alertmanager_secret.json"
+run_oc_command "get secret alertmanager-main -n openshift-monitoring -o json"  "${BASE_COLLECTION_PATH}/alertmanager_secret.json"
 run_oc_command "get prometheuses -A -o json" "${BASE_COLLECTION_PATH}/prometheuses.json"
 run_oc_command "get clusterloggings -n openshift-logging -o json" "${BASE_COLLECTION_PATH}/clusterloggings.json"
-run_oc_command "get clusterlogforwarder instance -n openshift-logging -o json "  > "${BASE_COLLECTION_PATH}/clusterlogforwarder.json"
-run_oc_command "get configmap cluster-monitoring-config -n openshift-monitoring -o json"  > "${BASE_COLLECTION_PATH}/configmap-monitoring.json"
+run_oc_command "get clusterlogforwarder instance -n openshift-logging -o json "  "${BASE_COLLECTION_PATH}/clusterlogforwarder.json"
+run_oc_command "get configmap cluster-monitoring-config -n openshift-monitoring -o json"  "${BASE_COLLECTION_PATH}/configmap-monitoring.json"
 
 # Machine management
 run_oc_command "get machineset -A -o json" "${BASE_COLLECTION_PATH}/machinesets.json"
@@ -129,10 +129,10 @@ run_oc_command "get machineautoscalers -A -o json" "${BASE_COLLECTION_PATH}/mach
 
 # Image registry
 run_oc_command "get configs.imageregistry.operator.openshift.io -o json" "${BASE_COLLECTION_PATH}/imageregistry_config.json"
-run_oc_command "get images -o json"   > "${BASE_COLLECTION_PATH}/images.json"
-run_oc_command "get imagecontentsourcepolicy -o json"   > "${BASE_COLLECTION_PATH}/imagecontentsourcepolicy.json"
-run_oc_command "get imagestreams --all-namespaces                -o json"   > "${BASE_COLLECTION_PATH}/imagestreams.json"
-run_oc_command "get image.config.openshift.io/cluster            -o json"   > "${BASE_COLLECTION_PATH}/image.json"
+run_oc_command "get images -o json"   "${BASE_COLLECTION_PATH}/images.json"
+run_oc_command "get imagecontentsourcepolicy -o json"   "${BASE_COLLECTION_PATH}/imagecontentsourcepolicy.json"
+run_oc_command "get imagestreams --all-namespaces                -o json"   "${BASE_COLLECTION_PATH}/imagestreams.json"
+run_oc_command "get image.config.openshift.io/cluster            -o json"   "${BASE_COLLECTION_PATH}/image.json"
 
 # Console
 run_oc_command "get consoles.config.openshift.io -o json" "${BASE_COLLECTION_PATH}/console_config.json"
@@ -154,9 +154,9 @@ run_oc_command "get profiles.config.kio.kasten.io -o json" "${BASE_COLLECTION_PA
 run_oc_command "get policies.config.kio.kasten.io --all-namespaces -o json" "${BASE_COLLECTION_PATH}/kasten_policies.json"
 run_oc_command "get restores -n kasten-io -o json" "${BASE_COLLECTION_PATH}/kasten_restores.json"
 run_oc_command "get backupactions -n kasten-io -o json" "${BASE_COLLECTION_PATH}/kasten_backupactions.json"
-run_oc_command "get deployment k10-deployment -n kasten-io -o json"       > "${BASE_COLLECTION_PATH}/kasten-deployment.json"
-run_oc_command "get snapshots.k10.kasten.io --all-namespaces -o json "    > "${BASE_COLLECTION_PATH}/kasten-snapshots.json"
-run_oc_command "get volumesnapshots --all-namespaces -o json  "           > "${BASE_COLLECTION_PATH}/kasten-volumesnapshots.json"
+run_oc_command "get deployment k10-deployment -n kasten-io -o json"       "${BASE_COLLECTION_PATH}/kasten-deployment.json"
+run_oc_command "get snapshots.k10.kasten.io --all-namespaces -o json "    "${BASE_COLLECTION_PATH}/kasten-snapshots.json"
+run_oc_command "get volumesnapshots --all-namespaces -o json  "           "${BASE_COLLECTION_PATH}/kasten-volumesnapshots.json"
 
 
 
@@ -182,7 +182,7 @@ run_oc_command "get services -A -o wide" "${BASE_COLLECTION_PATH}/services.txt"
 # Logs for MetalLB components
 run_oc_command "logs -n metallb-system -l component=controller" "${BASE_COLLECTION_PATH}/metallb_controller_logs.txt"
 run_oc_command "logs -n metallb-system -l component=speaker" "${BASE_COLLECTION_PATH}/metallb_speaker_logs.txt"
-run_oc_command "get addresspool -n openshift-metallb -o json"   > "${BASE_COLLECTION_PATH}/addresspool.json"
+run_oc_command "get addresspool -n openshift-metallb -o json"   "${BASE_COLLECTION_PATH}/addresspool.json"
 
 echo "audit complete. All information has been saved in the '${BASE_COLLECTION_PATH}' directory."
 
