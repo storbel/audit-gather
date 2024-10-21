@@ -29,7 +29,11 @@ python3 ./advChecksOCP.py > advChecksOCP.log
 echo "Run bash commands"
 
 # Cluster-wide information
+run_oc_command "cluster-info dump" "${BASE_COLLECTION_PATH}/clusterDump.txt"
+
 run_oc_command "version" "${BASE_COLLECTION_PATH}/version.txt"
+
+
 run_oc_command "get clusterversion -o json" "${BASE_COLLECTION_PATH}/clusterversion.json"
 run_oc_command "get nodes -o wide" "${BASE_COLLECTION_PATH}/nodes.txt"
 run_oc_command "describe nodes" "${BASE_COLLECTION_PATH}/nodes_describe.txt"
